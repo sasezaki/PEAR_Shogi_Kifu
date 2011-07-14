@@ -6,3 +6,4 @@ mb_internal_encoding('UTF-8');
 // $data = file_get_contents(dirname(__FILE__).'/kk1983ss.kif.txt');
 $data = file_get_contents(dirname(__FILE__).'/081217-h.kif');
 $kifu = new Shogi_Kifu($data, 'kif');
+var_dump($kifu->moveNext());

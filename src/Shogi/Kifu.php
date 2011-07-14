@@ -125,7 +125,7 @@ class Shogi_Kifu
     $move = $this->moves->get($this->step+1);
     if ($move && $move['type'] === 'move') {
       $this->suite->move($move);
-      $this->is_black = !$move['is_black'];
+      $this->is_black = (!isset($move['is_black']));
       $this->step++;
     }
     return $move;

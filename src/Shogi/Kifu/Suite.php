@@ -139,9 +139,10 @@ class Shogi_Kifu_Suite
 
   public function move($move)
   {
-    $is_black = $move['is_black'];
+
+    $is_black = isset($move['is_black']);
     $from     = $move['from'];
-    $stand    = $move['stand'];
+    $stand    = isset($move['stand']);
     $to       = $move['to'];
 
     if ($from['x']) {
@@ -242,6 +243,9 @@ class Shogi_Kifu_Suite
   public function standSet($piece, $is_black)
   {
     $player = $is_black ? 'black' : 'white';
+    if (!isset($this->stand[$player][$piece])) {
+        $this->stand[$player][$piece] = 0;
+    }
     $this->stand[$player][$piece]++;
     return $this;
   }
